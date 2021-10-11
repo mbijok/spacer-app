@@ -1,9 +1,7 @@
-<script setup>
-const title = 'Spacer';
-</script>
-
 <template>
-  <div>
-    <h1>{{ title }}</h1>
+  <div class="home">
+    <h1>spacer</h1>
   </div>
 </template>
+
+<script setup></script>
