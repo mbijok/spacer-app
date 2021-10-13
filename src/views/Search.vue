@@ -23,11 +23,11 @@ import { ref } from 'vue';
 import axios from 'axios';
 import debounce from 'lodash.debounce';
 
+const results = ref([]);
+const searchValue = ref('');
+
 const api_url = 'https://images-api.nasa.gov/search';
 
-const results = ref([]);
-
-const searchValue = ref('');
 const handleInput = debounce(() => {
   axios
     .get(`${api_url}?q=${searchValue.value}&media_type=image`)
