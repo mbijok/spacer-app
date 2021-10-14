@@ -1,6 +1,9 @@
 <template>
   <div>
     <div class="search flex align-center text-center flex-col">
+      <HeroImage />
+      <Claim />
+
       <label for="search">Search</label>
       <input
         class="border-b-2 w-1/2 m-auto"
@@ -10,7 +13,7 @@
       />
 
       <ul>
-        <li v-for="item in results" :key="item.data[0].nasa_id">
+        <li v-for="item in items" :key="item.data[0].nasa_id">
           <p>{{ item.data[0].title }}</p>
         </li>
       </ul>
@@ -20,11 +23,14 @@
 
 <script setup>
 import { ref } from 'vue';
+import HeroImage from '../components/HeroImage.vue';
+import Claim from '../components/Claim.vue';
+
 import axios from 'axios';
 import debounce from 'lodash.debounce';
 
-const results = ref([]);
 const searchValue = ref('');
+const items = ref([]);
 
 const api_url = 'https://images-api.nasa.gov/search';
 
@@ -32,7 +38,7 @@ const handleInput = debounce(() => {
   axios
     .get(`${api_url}?q=${searchValue.value}&media_type=image`)
     .then((response) => {
-      results.value = response.data.collection.items;
+      items.value = response.data.collection.items;
     })
     .catch((error) => {
       console.log(error);
