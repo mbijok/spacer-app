@@ -3,14 +3,7 @@
     <div class="search flex align-center text-center flex-col">
       <HeroImage />
       <Claim />
-
-      <label for="search">Search</label>
-      <input
-        class="border-b-2 w-1/2 m-auto"
-        name="search"
-        v-model="searchValue"
-        @input="handleInput"
-      />
+      <SearchInput v-model="searchValue" @input="handleInput" />
 
       <ul>
         <li v-for="item in items" :key="item.data[0].nasa_id">
@@ -25,6 +18,7 @@
 import { ref } from 'vue';
 import HeroImage from '../components/HeroImage.vue';
 import Claim from '../components/Claim.vue';
+import SearchInput from '../components/SearchInput.vue';
 
 import axios from 'axios';
 import debounce from 'lodash.debounce';
