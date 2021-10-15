@@ -2,7 +2,7 @@
   <div>
     <input
       class="
-        text-2xl text-center
+        text-red-500 text-2xl text-center
         font-medium
         placeholder-white/50
         focus:border-white
@@ -13,15 +13,16 @@
         sm:w-3/5
         md:w-1/2
         p-2
-        transition-all
+        transition-[border-color]
         duration-500
       "
+      :class="{ 'text-slate-900 bg-gray-100': inputNotEmpty }"
       name="search"
       placeholder="e.g. moon"
       type="text"
       v-model="searchValue"
     />
-    <p class="hidden">Results for "{{ modelValue }}"</p>
+    <p class="bg-black">Results for "{{ modelValue }}" [{{ inputNotEmpty }}]</p>
   </div>
 </template>
 
@@ -34,6 +35,10 @@ const props = defineProps({
   modelValue: {
     type: String,
     default: '',
+  },
+  inputNotEmpty: {
+    type: Boolean,
+    default: false,
   },
 });
 
