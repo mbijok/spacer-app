@@ -1,12 +1,27 @@
 <template>
-  <div class="flex flex-col">
+  <div>
     <input
-      class="border-b-2 w-1/2 m-auto"
+      class="
+        text-2xl text-center
+        font-medium
+        placeholder-white/50
+        focus:border-white
+        border-b-2 border-white/50
+        outline-none
+        bg-transparent
+        w-9/12
+        sm:w-3/5
+        md:w-1/2
+        p-2
+        transition-all
+        duration-500
+      "
       name="search"
+      placeholder="e.g. moon"
       type="text"
       v-model="searchValue"
     />
-    <p>Results for "{{ modelValue }}"</p>
+    <p class="hidden">Results for "{{ modelValue }}"</p>
   </div>
 </template>
 
@@ -22,7 +37,7 @@ const props = defineProps({
   },
 });
 
-/** Update variable and emit (send) to parent */
+/** Update variable and emit to parent */
 const searchValue = computed({
   get() {
     return props.modelValue;

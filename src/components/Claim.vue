@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-col">
-    <h1>SPACER</h1>
-    <p>
+  <div>
+    <h1 class="text-[16vw] md:text-9xl font-black tracking-widest">SPACER</h1>
+    <p class="mb-3 mx-10">
       Begin your journey through our amazing galaxy, and discover places you
       never even heard of.
     </p>
-    <p>Type anything space-related to start.</p>
+    <p class="mb-3 mx-10">Type anything space-related to start:</p>
   </div>
 </template>
 

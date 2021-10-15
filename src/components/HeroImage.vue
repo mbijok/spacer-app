@@ -1,22 +1,14 @@
 <template>
-  <div class="heroimage"></div>
+  <div
+    class="
+      bg-hero-image
+      fixed
+      -z-1
+      inset-0
+      bg-no-repeat bg-bottom bg-cover
+      after:absolute after:contents after:inset-0 after:bg-black/30
+    "
+  ></div>
 </template>
 
 <script setup></script>
-<style>
-.heroimage {
-  position: fixed;
-  z-index: -1;
-  inset: 0;
-  background-image: url('/src/assets/heroimage.jpg');
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: cover;
-}
-.heroimage::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.33);
-}
-</style>

@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <div class="search flex align-center text-center flex-col">
-      <HeroImage />
-      <Claim />
-      <SearchInput v-model="searchValue" @input="handleInput" />
-      <ListItems :items="items" />
-    </div>
+  <div
+    class="flex flex-col min-h-[calc(100vh-2rem)] justify-center text-center"
+  >
+    <HeroImage />
+    <Claim />
+    <SearchInput v-model="searchValue" @input="handleInput" />
+    <ListItems :items="items" />
   </div>
 </template>
 
