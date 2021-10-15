@@ -11,8 +11,10 @@
 </template>
 
 <script setup>
+/** Import vue objects */
 import { computed } from 'vue';
 
+/** Get properties from parent component */
 const props = defineProps({
   modelValue: {
     type: String,
@@ -20,6 +22,7 @@ const props = defineProps({
   },
 });
 
+/** Update variable and emit (send) to parent */
 const searchValue = computed({
   get() {
     return props.modelValue;
