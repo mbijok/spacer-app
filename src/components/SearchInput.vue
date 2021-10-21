@@ -16,13 +16,15 @@
         transition-[border-color]
         duration-500
       "
-      :class="{ 'text-slate-900 bg-gray-100': inputNotEmpty }"
+      :class="{ 'text-green-700 bg-gray-100': inputNotEmpty }"
       name="search"
       placeholder="e.g. moon"
       type="text"
       v-model="searchValue"
     />
-    <p class="bg-black">Results for "{{ modelValue }}" [{{ inputNotEmpty }}]</p>
+    <p class="bg-black">
+      Results for "{{ modelValue }}" [{{ inputNotEmpty }}] [{{ searchValue }}]
+    </p>
   </div>
 </template>
 

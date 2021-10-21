@@ -1,18 +1,28 @@
 <template>
+  <div :class="{ 'text-black': appStage === 1 }">
+    <MainMenu />
+  </div>
   <div
     :class="[
-      { italic: appStep === 1 },
+      { 'italic ': appStage === 1 },
       'flex flex-col min-h-[calc(100vh-2rem)] justify-center text-center',
     ]"
   >
-    <HeroImage :inputNotEmpty="appStep === 1" />
-    <Claim v-if="appStep === 0" />
+    <HeroImage :inputNotEmpty="appStage === 1" />
+    <Claim v-if="appStage === 0" />
     <SearchInput
       v-model="searchValue"
       @input="handleInput"
-      :inputNotEmpty="appStep === 1"
+      :inputNotEmpty="appStage === 1"
     />
-    <ListItems :items="items" />
+    <Loader v-if="appStage === 0 && loading" />
+    <div v-if="items && !loading && appStage === 1">
+      <ListItems
+        v-for="item in items"
+        :item="item"
+        :key="item.data[0].nasa_id"
+      />
+    </div>
   </div>
 </template>
 
@@ -21,9 +31,11 @@
 import { ref } from 'vue';
 
 /** Import components */
+import MainMenu from '../components/MainMenu.vue';
 import HeroImage from '../components/HeroImage.vue';
 import Claim from '../components/Claim.vue';
 import SearchInput from '../components/SearchInput.vue';
+import Loader from '../components/Loader.vue';
 import ListItems from '../components/ListItems.vue';
 
 /** Import helper packages */
@@ -31,7 +43,7 @@ import axios from 'axios';
 import debounce from 'lodash.debounce';
 
 /** Set reactive consts */
-const appStep = ref(0);
+const appStage = ref(0);
 const loading = ref(false);
 const searchValue = ref('');
 const items = ref([]);
@@ -40,15 +52,21 @@ const items = ref([]);
 const api_url = 'https://images-api.nasa.gov/search';
 const handleInput = debounce(() => {
   loading.value = true;
-  axios
-    .get(`${api_url}?q=${searchValue.value}&media_type=image`)
-    .then((response) => {
-      items.value = response.data.collection.items;
-      loading.value = false;
-      appStep.value = 1;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  if (searchValue.value != '') {
+    axios
+      .get(`${api_url}?q=${searchValue.value}&media_type=image`)
+      .then((response) => {
+        items.value = response.data.collection.items;
+        loading.value = false;
+        appStage.value = 1;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  } else {
+    appStage.value = 0;
+    loading.value = false;
+    items.value = [];
+  }
 }, 500);
 </script>

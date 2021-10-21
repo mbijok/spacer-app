@@ -6,9 +6,12 @@
       -z-1
       inset-0
       bg-no-repeat bg-bottom bg-cover
+      transition-opacity
+      duration-500
+      ease-in
       after:absolute after:contents after:inset-0 after:bg-black/30
     "
-    :class="{ 'darkw lol': inputNotEmpty }"
+    :class="{ 'opacity-0': props.inputNotEmpty }"
   ></div>
 </template>
 
