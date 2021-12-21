@@ -1,24 +1,23 @@
 <template>
   <div
     class="
-      bg-hero-image
+      bg-image-url
       fixed
       -z-1
       inset-0
       bg-no-repeat bg-bottom bg-cover
-      transition-opacity
-      duration-500
-      ease-in
       after:absolute after:contents after:inset-0 after:bg-black/30
+      transition-opacity
+      duration-300
     "
-    :class="{ 'opacity-0': props.inputNotEmpty }"
+    :class="{ 'opacity-0': props.appState }"
   ></div>
 </template>
 
 <script setup>
 /** Get properties from parent component */
 const props = defineProps({
-  inputNotEmpty: {
+  appState: {
     type: Boolean,
     default: false,
   },

@@ -1,29 +1,35 @@
 <template>
   <div>
+    <p
+      :class="[
+        {
+          'text-white': emptyInput,
+          'text-black dark:text-white': !emptyInput,
+        },
+        'mb-3 mx-10',
+      ]"
+    >
+      Type anything space-related to start:
+    </p>
     <input
-      class="
-        text-red-500 text-2xl text-center
-        font-medium
-        placeholder-white/50
-        focus:border-white
-        border-b-2 border-white/50
-        outline-none
-        bg-transparent
-        w-9/12
-        sm:w-3/5
-        md:w-1/2
-        p-2
-        transition-[border-color]
-        duration-500
-      "
-      :class="{ 'text-green-700 bg-gray-100': inputNotEmpty }"
+      :class="[
+        {
+          'text-white bg-transparent placeholder-white/50 focus-within:border-white border-b-2 border-white/50':
+            emptyInput,
+        },
+        {
+          'text-black dark:text-white bg-transparent dark:bg-gray-800 focus-within:border-black dark:focus-within:border-white border-b-2 border-black/25 dark:border-white/50':
+            !emptyInput,
+        },
+        'text-4xl text-center font-medium outline-none w-9/12 sm:w-3/5 md:w-1/2 p-2 transition-[border-color] duration-300',
+      ]"
+      v-model="searchValue"
       name="search"
       placeholder="e.g. moon"
       type="text"
-      v-model="searchValue"
     />
-    <p class="bg-black">
-      Results for "{{ modelValue }}" [{{ inputNotEmpty }}] [{{ searchValue }}]
+    <p class="hidden bg-black">
+      Results for "{{ modelValue }}" [{{ emptyInput }}] [{{ searchValue }}]
     </p>
   </div>
 </template>
@@ -38,9 +44,9 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  inputNotEmpty: {
+  emptyInput: {
     type: Boolean,
-    default: false,
+    default: true,
   },
 });
 
