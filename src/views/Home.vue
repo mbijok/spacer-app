@@ -18,13 +18,30 @@
         :emptyInput="!appLoading && appState === 0"
       />
       <Loader v-if="appLoading && appState === 0" />
-      <div v-if="items && !appLoading && appState === 1">
+      <div
+        class="
+          grid
+          sm:grid-cols-2
+          md:grid-cols-3
+          lg:grid-cols-4
+          2xl:grid-cols-5
+          gap-6
+          m-12
+        "
+        v-if="items && !appLoading && appState === 1"
+      >
         <ListItems
           v-for="item in items"
           :item="item"
           :key="item.data[0].nasa_id"
+          @click="handleModalOpen(item)"
         />
       </div>
+      <Modal
+        v-if="modalOpen"
+        :item="modalItem"
+        @closeModal="modalOpen = false"
+      />
     </div>
   </div>
 </template>
@@ -40,6 +57,7 @@ import Header from '../components/Header.vue';
 import SearchInput from '../components/SearchInput.vue';
 import Loader from '../components/Loader.vue';
 import ListItems from '../components/ListItems.vue';
+import Modal from '../components/Modal.vue';
 
 /** Import helper packages */
 import axios from 'axios';
@@ -50,6 +68,8 @@ const appState = ref(0);
 const appLoading = ref(false);
 const searchValue = ref('');
 const items = ref([]);
+const modalOpen = ref(false);
+const modalItem = ref([]);
 
 /** Get response from API */
 const api_url = 'https://images-api.nasa.gov/search';
@@ -72,4 +92,10 @@ const handleInput = debounce(() => {
     appState.value = 0;
   }
 }, 500);
+
+/** Handle Modal */
+const handleModalOpen = (item) => {
+  modalOpen.value = true;
+  modalItem.value = item;
+};
 </script>
