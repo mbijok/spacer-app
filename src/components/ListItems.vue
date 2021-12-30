@@ -1,7 +1,17 @@
 <template>
   <div
     :id="id"
-    class="group aspect-square grid border-4 overflow-hidden cursor-pointer"
+    class="
+      group
+      aspect-square
+      grid
+      shadow-xl
+      hover:scale-105
+      transition-transform
+      transform-gpu
+      overflow-hidden
+      cursor-pointer
+    "
     :key="id"
   >
     <img
@@ -15,12 +25,10 @@
         col-[1/2]
         place-self-end
         bg-gradient-to-t
-        from-black/75
-        via-black/75
+        from-black
         text-white
-        font-semibold
-        pt-8
-        pb-2
+        font-normal
+        py-8
         px-2
         h-min
         w-full
@@ -42,7 +50,11 @@ const props = defineProps({
     default: {},
   },
 });
+
+const empty = !props.item ? ':(' : null;
+
 const id = props.item.data[0].nasa_id;
-const title = props.item.data[0].title;
 const image = props.item.links[0].href;
+let title = props.item.data[0].title;
+title.length > 64 ? (title = title.substring(0, 64) + '...') : '';
 </script>

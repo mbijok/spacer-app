@@ -19,6 +19,7 @@
       />
       <Loader v-if="appLoading && appState === 0" />
       <div
+        v-if="items && !appLoading && appState === 1"
         class="
           grid
           sm:grid-cols-2
@@ -28,14 +29,19 @@
           gap-6
           m-12
         "
-        v-if="items && !appLoading && appState === 1"
       >
         <ListItems
+          v-if="items"
           v-for="item in items"
           :item="item"
           :key="item.data[0].nasa_id"
           @click="handleModalOpen(item)"
         />
+      </div>
+      <div
+        v-if="Object.keys(items).length === 0 && !appLoading && appState === 1"
+      >
+        No results :( But try something else!
       </div>
       <Modal
         v-if="modalOpen"
