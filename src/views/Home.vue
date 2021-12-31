@@ -1,5 +1,9 @@
 <template>
-  <div :class="{ 'dark:bg-slate-800': appLoading || appState === 1 }">
+  <div
+    :class="{
+      'dark:bg-stone-800 dark:text-white': appLoading || appState === 1,
+    }"
+  >
     <BackgroundImage :appState="appLoading || appState === 1" />
     <MainMenu :appState="appLoading || appState === 1" />
     <div
@@ -48,6 +52,7 @@
         :item="modalItem"
         @closeModal="modalOpen = false"
       />
+      <div :class="{ 'bg-black/75 fixed inset-0 z-10': modalOpen }"></div>
     </div>
   </div>
 </template>

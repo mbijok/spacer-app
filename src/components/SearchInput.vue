@@ -18,7 +18,7 @@
             emptyInput,
         },
         {
-          'text-black dark:text-white bg-transparent dark:bg-gray-800 focus-within:border-black dark:focus-within:border-white border-b-2 border-black/25 dark:border-white/50':
+          'text-black dark:text-white bg-transparent dark:bg-stone-800 focus-within:border-black dark:focus-within:border-white border-b-2 border-black/25 dark:border-white/50':
             !emptyInput,
         },
         'text-4xl text-center font-medium outline-none w-9/12 sm:w-3/5 md:w-1/2 p-2 transition-[border-color] duration-300',
@@ -28,9 +28,6 @@
       placeholder="e.g. moon"
       type="text"
     />
-    <p class="hidden bg-black">
-      Results for "{{ modelValue }}" [{{ emptyInput }}] [{{ searchValue }}]
-    </p>
   </div>
 </template>
 

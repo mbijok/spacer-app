@@ -51,8 +51,6 @@ const props = defineProps({
   },
 });
 
-const empty = !props.item ? ':(' : null;
-
 const id = props.item.data[0].nasa_id;
 const image = props.item.links[0].href;
 let title = props.item.data[0].title;

@@ -1,5 +1,15 @@
 <template>
-  <div class="absolute border-8 inset-x-36 bg-teal-100">
+  <div
+    class="
+      fixed
+      inset-16
+      xl:inset-1/4
+      overflow-y-scroll
+      z-20
+      border-8
+      bg-teal-100
+    "
+  >
     <p class="text-xl">{{ title }}</p>
     <p>{{ description }}</p>
     <img :src="image" :alt="title" />
