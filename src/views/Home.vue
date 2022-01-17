@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{
-      'dark:bg-stone-800 dark:text-white': appLoading || appState === 1,
+      'dark:bg-zinc-900 dark:text-white': appLoading || appState === 1,
     }"
   >
     <BackgroundImage :appState="appLoading || appState === 1" />
@@ -24,15 +24,7 @@
       <Loader v-if="appLoading && appState === 0" />
       <div
         v-if="items && !appLoading && appState === 1"
-        class="
-          grid
-          sm:grid-cols-2
-          md:grid-cols-3
-          lg:grid-cols-4
-          2xl:grid-cols-5
-          gap-6
-          m-12
-        "
+        class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 m-12"
       >
         <ListItems
           v-if="items"
@@ -52,7 +44,6 @@
         :item="modalItem"
         @closeModal="modalOpen = false"
       />
-      <div :class="{ 'bg-black/75 fixed inset-0 z-10': modalOpen }"></div>
     </div>
   </div>
 </template>

@@ -18,7 +18,7 @@
             emptyInput,
         },
         {
-          'text-black dark:text-white bg-transparent dark:bg-stone-800 focus-within:border-black dark:focus-within:border-white border-b-2 border-black/25 dark:border-white/50':
+          'text-black dark:text-white bg-transparent dark:bg-zink-900 focus-within:border-black dark:focus-within:border-white border-b-2 border-black/25 dark:border-white/50':
             !emptyInput,
         },
         'text-4xl text-center font-medium outline-none w-9/12 sm:w-3/5 md:w-1/2 p-2 transition-[border-color] duration-300',
@@ -48,6 +48,7 @@ const props = defineProps({
 });
 
 /** Update variable and emit to parent */
+const emit = defineEmits(['update:modelValue']);
 const searchValue = computed({
   get() {
     return props.modelValue;
@@ -56,5 +57,4 @@ const searchValue = computed({
     emit('update:modelValue', val);
   },
 });
-const emit = defineEmits(['update:modelValue']);
 </script>
