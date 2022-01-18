@@ -1,17 +1,7 @@
 <template>
   <div
     :id="id"
-    class="
-      group
-      aspect-square
-      grid
-      shadow-xl
-      hover:scale-105
-      transition-transform
-      transform-gpu
-      overflow-hidden
-      cursor-pointer
-    "
+    class="group aspect-square grid shadow-xl hover:scale-105 active:scale-105 focus:scale-105 transition-transform transform-gpu overflow-hidden cursor-pointer"
     :key="id"
   >
     <img
@@ -20,22 +10,7 @@
       class="row-[1/2] col-[1/2] object-cover h-full w-full"
     />
     <p
-      class="
-        row-[1/2]
-        col-[1/2]
-        place-self-end
-        bg-gradient-to-t
-        from-black
-        text-white
-        font-normal
-        py-8
-        px-2
-        h-min
-        w-full
-        translate-y-full
-        group-hover:translate-y-0
-        transition-transform
-      "
+      class="row-[1/2] col-[1/2] place-self-end bg-gradient-to-t from-black text-white font-normal py-8 px-2 h-min w-full translate-y-full group-hover:translate-y-0 transition-transform"
     >
       {{ title }}
     </p>

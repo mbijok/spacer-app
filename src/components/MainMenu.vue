@@ -5,7 +5,7 @@
         'text-black dark:text-white': props.appState,
         'text-white': !props.appState,
       },
-      'transition duration-300 h-8',
+      'transition duration-300 h-24 flex items-center text-xl pl-8 gap-4',
     ]"
   >
     <router-link to="/">spacer</router-link> |

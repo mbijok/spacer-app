@@ -2,7 +2,7 @@
   <div class="text-white">
     <BackgroundImage />
     <MainMenu />
-    <h1>This is an about page</h1>
+    <section class="container mx-auto"><h1>This is an about page</h1></section>
   </div>
 </template>
 

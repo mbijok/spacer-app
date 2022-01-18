@@ -1,9 +1,5 @@
 <template>
-  <div
-    :class="{
-      'dark:bg-zinc-900 dark:text-white': appLoading || appState === 1,
-    }"
-  >
+  <div :class="{ 'dark:text-white': appLoading || appState === 1 }">
     <BackgroundImage :appState="appLoading || appState === 1" />
     <MainMenu :appState="appLoading || appState === 1" />
     <div
@@ -12,7 +8,7 @@
           'justify-center ': !appLoading && appState === 0,
           'justify-start ': appLoading || appState === 1,
         },
-        'text-center flex flex-col min-h-[calc(100vh-2rem)]',
+        'container mx-auto text-center flex flex-col min-h-[calc(100vh-6rem)]',
       ]"
     >
       <Header v-if="!appLoading && appState === 0" />
@@ -72,6 +68,7 @@ const searchValue = ref('');
 const items = ref([]);
 const modalOpen = ref(false);
 const modalItem = ref([]);
+const scrollbarWidth = ref(10);
 
 /** Get response from API */
 const api_url = 'https://images-api.nasa.gov/search';
@@ -79,7 +76,8 @@ const handleInput = debounce(() => {
   appLoading.value = true;
   if (searchValue.value != '') {
     axios
-      .get(`${api_url}?q=${searchValue.value}&media_type=image`)
+      .get(api_url + '?q=' + searchValue.value + '&media_type=image')
+      //.get(`${api_url}?q=${searchValue.value}&media_type=image`)
       .then((response) => {
         items.value = response.data.collection.items;
         appLoading.value = false;
