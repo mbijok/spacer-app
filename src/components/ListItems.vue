@@ -1,16 +1,16 @@
 <template>
   <div
     :id="id"
-    class="group aspect-square grid shadow-xl hover:scale-105 active:scale-105 focus:scale-105 transition-transform transform-gpu overflow-hidden cursor-pointer"
+    class="group grid aspect-square transform-gpu cursor-pointer overflow-hidden shadow-xl transition-transform hover:scale-105 focus:scale-105 active:scale-105"
     :key="id"
   >
     <img
       :src="image"
       :alt="title"
-      class="row-[1/2] col-[1/2] object-cover h-full w-full"
+      class="col-[1/2] row-[1/2] h-full w-full object-cover"
     />
     <p
-      class="row-[1/2] col-[1/2] place-self-end bg-gradient-to-t from-black text-white font-normal py-8 px-2 h-min w-full translate-y-full group-hover:translate-y-0 transition-transform"
+      class="col-[1/2] row-[1/2] h-min w-full translate-y-full place-self-end bg-gradient-to-t from-black py-8 px-2 font-normal text-white transition-transform group-hover:translate-y-0"
     >
       {{ title }}
     </p>

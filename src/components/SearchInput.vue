@@ -6,7 +6,7 @@
           'text-white': emptyInput,
           'text-black dark:text-white': !emptyInput,
         },
-        'mb-3 mx-10',
+        'mx-10 mb-3',
       ]"
     >
       Type anything space-related to start:
@@ -14,14 +14,14 @@
     <input
       :class="[
         {
-          'text-white bg-transparent placeholder-white/50 focus-within:border-white border-b-2 border-white/50':
+          'border-b-2 border-white/50 bg-transparent text-white placeholder-white/50 focus-within:border-white':
             emptyInput,
         },
         {
-          'text-black dark:text-white bg-transparent dark:bg-zink-900 focus-within:border-black dark:focus-within:border-white border-b-2 border-black/25 dark:border-white/50':
+          'dark:bg-zink-900 border-b-2 border-black/25 bg-transparent text-black focus-within:border-black dark:border-white/50 dark:text-white dark:focus-within:border-white':
             !emptyInput,
         },
-        'text-4xl text-center font-medium outline-none w-9/12 sm:w-3/5 md:w-1/2 p-2 transition-[border-color] duration-300',
+        'w-9/12 p-2 text-center text-4xl font-medium outline-none transition-[border-color] duration-300 sm:w-3/5 md:w-1/2',
       ]"
       v-model="searchValue"
       name="search"

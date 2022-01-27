@@ -1,5 +1,5 @@
 <template>
-  <div class="font-light text-lg">
+  <div class="text-lg font-light">
     <router-view />
   </div>
 </template>

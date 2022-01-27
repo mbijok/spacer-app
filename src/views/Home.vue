@@ -8,7 +8,7 @@
           'justify-center ': !appLoading && appState === 0,
           'justify-start ': appLoading || appState === 1,
         },
-        'container mx-auto text-center flex flex-col min-h-[calc(100vh-6rem)]',
+        'container mx-auto flex min-h-[calc(100vh-6rem)] flex-col text-center',
       ]"
     >
       <Header v-if="!appLoading && appState === 0" />
@@ -20,7 +20,7 @@
       <Loader v-if="appLoading && appState === 0" />
       <div
         v-if="items && !appLoading && appState === 1"
-        class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 m-12"
+        class="m-12 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5"
       >
         <ListItems
           v-if="items"

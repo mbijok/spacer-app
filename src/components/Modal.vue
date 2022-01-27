@@ -6,14 +6,14 @@
         'opacity-0 ': modalIsOpen == false,
         'opacity-100 ': modalIsOpen == true,
       },
-      'transition-opacity duration-300 delay-[10ms]',
+      'transition-opacity delay-[10ms] duration-300',
     ]"
-    class="fixed flex justify-center items-start overflow-y-auto py-12 inset-0 bg-black/90 z-10"
+    class="fixed inset-0 z-10 flex items-start justify-center overflow-y-auto bg-black/90 py-12"
   >
     <div
-      class="flex flex-col p-8 min-h-fit max-w-5xl bg-gray-50 dark:bg-stone-900"
+      class="flex min-h-fit max-w-5xl flex-col bg-gray-50 p-8 dark:bg-stone-900"
     >
-      <header class="flex justify-between items-start">
+      <header class="flex items-start justify-between">
         <h2 class="text-xl font-bold">{{ title }}</h2>
         <button @click="[$emit('closeModal'), unlockBody()]">
           <svg

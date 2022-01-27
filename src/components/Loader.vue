@@ -1,7 +1,7 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="h-6 w-6 animate-spin mx-auto dark:hidden"
+    class="mx-auto h-6 w-6 animate-spin dark:hidden"
     fill="none"
     viewBox="0 0 24 24"
     stroke="#000"
@@ -15,7 +15,7 @@
   </svg>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="h-6 w-6 animate-spin mx-auto hidden dark:block"
+    class="mx-auto hidden h-6 w-6 animate-spin dark:block"
     fill="none"
     viewBox="0 0 24 24"
     stroke="#fff"

@@ -1,7 +1,7 @@
 <template>
   <div
-    class="bg-image-url w-screen fixed z-[-1] brightness-50 inset-0 bg-no-repeat bg-bottom bg-cover transition-[filter] duration-[600ms]"
-    :class="{ 'brightness-200 dark:brightness-[.2] grayscale': props.appState }"
+    class="bg-image-url fixed inset-0 z-[-1] w-screen bg-cover bg-bottom bg-no-repeat brightness-50 transition-[filter] duration-[600ms]"
+    :class="{ 'brightness-200 grayscale dark:brightness-[.2]': props.appState }"
   ></div>
 </template>
 
